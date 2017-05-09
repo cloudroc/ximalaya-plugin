@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	//"background": {
+	//	"page": "background.html"
+	//},
+	"browser_action": {
+		"default_icon"  : "logo/Icon-48.png",
+		"default_title" : "喜马小助手",
+		"default_popup" : "popup.html"
+	},
+	"description": "一键获取喜马拉雅免费音频的下载地址~",
+	"icons": {
+		"128" : "logo/Icon-128.png",
+		"32"  : "logo/Icon-32.png",
+		"48"  : "logo/Icon-48.png",
+		"16"  : "logo/Icon-16.png"
+	},
+	"content_scripts": [
+		{
+			"matches" : ["*://www.ximalaya.com/*/sound/*"],
+			"js"      : ["js/jquery-1.7.2.min.js","js/download.js"],
+			"all_frames" : true
+		}
+	],
+	"web_accessible_resources": ["logo/Icon-256.png"],
+	"name": "喜马拉雅下载助手",
+	"short_name": "喜马小助手",
+	//"options_page": "options.html",
+	"permissions": [
+		"cookies", 
+		"tabs", 
+		"notifications",
+		"*://*.ximalaya.com/*"
+	],
+	"version": "1.0.0"
+}
